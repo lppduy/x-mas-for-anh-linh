@@ -64,6 +64,10 @@ const questions = [
   },
 ];
 
+const backgroundMusic = new Audio('./bg.mp3');
+const clickSound = new Audio('./click.mp3');
+backgroundMusic.loop = true; // Lặp lại nhạc nền
+backgroundMusic.volume = 0.3; // Điều chỉnh âm lượng
 const questionElement = document.getElementById('question');
 const answerButtons = document.getElementById('answer-buttons');
 const nextButton = document.getElementById('next-btn');
@@ -109,6 +113,8 @@ function resetState() {
 function selectAnswer(e) {
   const selectedBtn = e.target;
   const selectedAnswerText = selectedBtn.innerText;
+
+  clickSound.play();
 
   const isCorrect = selectedBtn.dataset.correct === 'true';
 
@@ -174,6 +180,8 @@ function showScore() {
 }
 
 function handleNextButton() {
+  backgroundMusic.play();
+
   curQuestionIdx++;
   if (curQuestionIdx < questions.length) {
     showQuestion();
