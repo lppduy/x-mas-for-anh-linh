@@ -173,9 +173,8 @@ function showScore() {
     paragraph.innerText = `Câu hỏi ${answer.questionIndex}: '${answer.answerText}' `;
     answeredQuestionsElement.appendChild(paragraph);
   });
-
   answeredQuestionsElement.classList.add('answered-question');
-
+  answeredQuestionsElement.id = 'history';
   quizEl.appendChild(answeredQuestionsElement);
 }
 
@@ -194,6 +193,11 @@ nextButton.addEventListener('click', () => {
   if (curQuestionIdx < questions.length) {
     handleNextButton();
   } else {
+    const history = document.getElementById('history');
+    if (history) {
+      history.parentNode.removeChild(history);
+      selectedAnswers = [];
+    }
     startQuiz();
   }
 });
