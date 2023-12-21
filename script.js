@@ -18,7 +18,7 @@ const questions = [
     ],
   },
   {
-    question: 'Ngày lễ chính thức của Giáng sinh là vào ngày nào naf?',
+    question: 'Ngày lễ chính thức của Giáng sinh là vào ngày nào nà?',
     answers: [
       { text: '23/12', correct: false },
       { text: '24/12', correct: false },
